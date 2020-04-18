@@ -25,7 +25,7 @@ class QWResult<T extends QWItems> {
         } else if(T == QWNewsItems) {
           items.add(QWNewsItems.fromJson(v) as T);
         } else if(T == QWSocialItems) {
-          items.add(QWNewsItems.fromJson(v) as T);
+          items.add(QWSocialItems.fromJson(v) as T);
         } else if(T == QWVideosItems) {
           items.add(QWVideosItems.fromJson(v) as T);
         }
