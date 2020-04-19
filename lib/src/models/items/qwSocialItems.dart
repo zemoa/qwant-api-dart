@@ -1,5 +1,3 @@
-
-
 import 'package:qwant_api/src/models/items/qwItems.dart';
 
 class QWSocialItems extends QWItems {
@@ -98,7 +96,7 @@ class QWMediaSocial {
     type = json['type'];
     mediaUrlHttps = json['media_url_https'];
     videoInfo = json['video_info'] != null
-        ?  QWVideoInfo.fromJson(json['video_info'])
+        ? QWVideoInfo.fromJson(json['video_info'])
         : null;
   }
 

@@ -3,7 +3,7 @@ import 'package:qwant_api/src/models/items/qwSocialItems.dart';
 import 'package:qwant_api/src/models/results/qwResult.dart';
 
 class QWSocialResult extends QWResult<QWSocialItems, QWFilters> {
-  QWSocialResult.fromJson(Map<String, dynamic> json){
+  QWSocialResult.fromJson(Map<String, dynamic> json) {
     fromJson(json);
   }
   @override
@@ -15,5 +15,4 @@ class QWSocialResult extends QWResult<QWSocialItems, QWFilters> {
   QWSocialItems buildItem(Map<String, dynamic> json) {
     return QWSocialItems.fromJson(json);
   }
-
 }

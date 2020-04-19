@@ -1,6 +1,6 @@
 import 'package:qwant_api/src/models/items/qwItems.dart';
 
-class QWWebItems extends QWItems{
+class QWWebItems extends QWItems {
   String title;
   String favicon;
   String url;

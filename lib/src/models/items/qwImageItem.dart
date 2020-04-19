@@ -1,5 +1,3 @@
-
-
 import 'package:qwant_api/src/models/items/qwItems.dart';
 
 class QWImageItems extends QWItems {

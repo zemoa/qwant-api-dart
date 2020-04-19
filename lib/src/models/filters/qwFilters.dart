@@ -1,5 +1,5 @@
 class QWFilters {
-  Map<String, dynamic> toJson(){
+  Map<String, dynamic> toJson() {
     return <String, dynamic>{};
   }
 }

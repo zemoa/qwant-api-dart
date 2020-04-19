@@ -19,16 +19,16 @@ class QWData<T extends QWResult> {
     cache = json['cache'] != null ? QWCache.fromJson(json['cache']) : null;
     result = null;
     var jsonResult = json['result'];
-    if(jsonResult != null) {
-      if(T == QWWebResult) {
+    if (jsonResult != null) {
+      if (T == QWWebResult) {
         result = (QWWebResult.fromJson(jsonResult) as T);
-      } else if(T == QWImageResult) {
+      } else if (T == QWImageResult) {
         result = (QWImageResult.fromJson(jsonResult) as T);
-      } else if(T == QWSocialResult) {
+      } else if (T == QWSocialResult) {
         result = (QWSocialResult.fromJson(jsonResult) as T);
-      } else if(T == QWNewsResult) {
+      } else if (T == QWNewsResult) {
         result = (QWNewsResult.fromJson(jsonResult) as T);
-      } else if(T == QWVideoResult) {
+      } else if (T == QWVideoResult) {
         result = (QWVideoResult.fromJson(jsonResult) as T);
       }
     }

@@ -3,7 +3,7 @@ import 'package:qwant_api/src/models/items/qwNewsItems.dart';
 import 'package:qwant_api/src/models/results/qwResult.dart';
 
 class QWNewsResult extends QWResult<QWNewsItems, QWNewsFilters> {
-  QWNewsResult.fromJson(Map<String, dynamic> json){
+  QWNewsResult.fromJson(Map<String, dynamic> json) {
     fromJson(json);
   }
   @override
@@ -15,5 +15,4 @@ class QWNewsResult extends QWResult<QWNewsItems, QWNewsFilters> {
   QWNewsItems buildItem(Map<String, dynamic> json) {
     return QWNewsItems.fromJson(json);
   }
-
 }

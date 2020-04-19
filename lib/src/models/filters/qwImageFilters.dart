@@ -19,8 +19,7 @@ class QWImageFilters extends QWFilters {
 
   QWImageFilters.fromJson(Map<String, dynamic> json) {
     size = json['size'] != null ? QWSize.fromJson(json['size']) : null;
-    license =
-        json['license'] != null ? QWSize.fromJson(json['license']) : null;
+    license = json['license'] != null ? QWSize.fromJson(json['license']) : null;
     freshness =
         json['freshness'] != null ? QWSize.fromJson(json['freshness']) : null;
     color = json['color'] != null ? QWSize.fromJson(json['color']) : null;

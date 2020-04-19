@@ -1,4 +1,3 @@
-
 import 'package:qwant_api/src/models/results/qwResult.dart';
 
 import 'qwData.dart';

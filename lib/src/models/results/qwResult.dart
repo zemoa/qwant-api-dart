@@ -16,8 +16,7 @@ abstract class QWResult<T extends QWItems, F extends QWFilters> {
         items.add(buildItem(v));
       });
     }
-    filters =
-        json['filters'] != null ? buildFilters(json['filters']) : null;    
+    filters = json['filters'] != null ? buildFilters(json['filters']) : null;
   }
 
   T buildItem(Map<String, dynamic> json);
@@ -27,14 +26,11 @@ abstract class QWResult<T extends QWItems, F extends QWFilters> {
     var data = <String, dynamic>{};
     data['total'] = total;
     if (items != null) {
-      data['items'] = items.map((v) => {
-        if(v is QWItems) {
-          v.toJson()
-        } else {
-          null
-        }
-      }
-        ).toList();
+      data['items'] = items
+          .map((v) => {
+                if (v is QWItems) {v.toJson()} else {null}
+              })
+          .toList();
     }
     if (filters != null) {
       data['filters'] = filters.toJson();

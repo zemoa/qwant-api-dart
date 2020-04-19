@@ -3,7 +3,7 @@ import 'package:qwant_api/src/models/items/qwImageItem.dart';
 import 'package:qwant_api/src/models/results/qwResult.dart';
 
 class QWImageResult extends QWResult<QWImageItems, QWImageFilters> {
-  QWImageResult.fromJson(Map<String, dynamic> json){
+  QWImageResult.fromJson(Map<String, dynamic> json) {
     fromJson(json);
   }
   @override
@@ -15,5 +15,4 @@ class QWImageResult extends QWResult<QWImageItems, QWImageFilters> {
   QWImageItems buildItem(Map<String, dynamic> json) {
     return QWImageItems.fromJson(json);
   }
-
 }

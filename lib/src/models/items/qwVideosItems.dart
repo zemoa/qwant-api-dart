@@ -1,4 +1,3 @@
-
 import 'package:qwant_api/src/models/items/qwItems.dart';
 
 class QWVideosItems extends QWItems {

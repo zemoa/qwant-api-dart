@@ -10,9 +10,8 @@ class QWNewsFilters extends QWFilters {
 
   QWNewsFilters.fromJson(Map<String, dynamic> json) {
     order = json['order'] != null ? QWOrder.fromJson(json['order']) : null;
-    freshness = json['freshness'] != null
-        ? QWOrder.fromJson(json['freshness'])
-        : null;
+    freshness =
+        json['freshness'] != null ? QWOrder.fromJson(json['freshness']) : null;
     source = json['source'] != null ? QWOrder.fromJson(json['source']) : null;
   }
   @override
@@ -30,4 +29,3 @@ class QWNewsFilters extends QWFilters {
     return data;
   }
 }
-

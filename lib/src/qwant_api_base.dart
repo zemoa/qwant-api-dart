@@ -14,48 +14,52 @@ import 'search_type.dart';
 
 class QwantApi {
   final String _baseUrl = 'https://api.qwant.com/api/search';
-  
 
   Future<QWSearchResult<QWWebResult>> searchWeb(String query,
-  {int count, int offset, Language language}) async {
+      {int count, int offset, Language language}) async {
     return _search<QWWebResult>(query, SearchType.WEB, count, offset, language);
   }
 
   Future<QWSearchResult<QWImageResult>> searchImages(String query,
-  {int count, int offset, Language language}) async {
-    return _search<QWImageResult>(query, SearchType.PICTURES, count, offset, language);
+      {int count, int offset, Language language}) async {
+    return _search<QWImageResult>(
+        query, SearchType.PICTURES, count, offset, language);
   }
 
   Future<QWSearchResult<QWNewsResult>> searchNews(String query,
-  {int count, int offset, Language language}) async {
-    return _search<QWNewsResult>(query, SearchType.NEWS, count, offset, language);
+      {int count, int offset, Language language}) async {
+    return _search<QWNewsResult>(
+        query, SearchType.NEWS, count, offset, language);
   }
 
   Future<QWSearchResult<QWSocialResult>> searchSocial(String query,
-  {int count, int offset, Language language}) async {
-    return _search<QWSocialResult>(query, SearchType.SOCIAL, count, offset, language);
+      {int count, int offset, Language language}) async {
+    return _search<QWSocialResult>(
+        query, SearchType.SOCIAL, count, offset, language);
   }
 
   Future<QWSearchResult<QWVideoResult>> searchVideos(String query,
-  {int count, int offset, Language language}) async {
-    return _search<QWVideoResult>(query, SearchType.VIDEOS, count, offset, language);
+      {int count, int offset, Language language}) async {
+    return _search<QWVideoResult>(
+        query, SearchType.VIDEOS, count, offset, language);
   }
 
-  Future<QWSearchResult<T>> _search<T extends QWResult>(String query, SearchType searchType,
-  int count, int offset, Language language) async {
-    var request = await HttpClient().getUrl(Uri.parse(_buildRequest(query, searchType, count, offset, language)))
-    ..headers.contentType = ContentType.json;
+  Future<QWSearchResult<T>> _search<T extends QWResult>(String query,
+      SearchType searchType, int count, int offset, Language language) async {
+    var request = await HttpClient().getUrl(
+        Uri.parse(_buildRequest(query, searchType, count, offset, language)))
+      ..headers.contentType = ContentType.json;
     var response = await request.close();
-    return utf8.decoder.bind(response).map((json){
+    return utf8.decoder.bind(response).map((json) {
       var decodedJson = jsonDecode(json);
       return QWSearchResult<T>.fromJson(decodedJson);
     }).first;
   }
 
-  String _buildRequest(String query, SearchType searchType, int count, int offset, Language language) {
-    
+  String _buildRequest(String query, SearchType searchType, int count,
+      int offset, Language language) {
     String type;
-    switch(searchType) {
+    switch (searchType) {
       case SearchType.NEWS:
         type = 'news';
         break;
@@ -72,16 +76,16 @@ class QwantApi {
         type = 'web';
         break;
     }
-    var countQuery ='';
-    if(count != null) {
+    var countQuery = '';
+    if (count != null) {
       countQuery = '&count=$count';
     }
-    var offsetQuery ='';
-    if(offset != null) {
+    var offsetQuery = '';
+    if (offset != null) {
       offsetQuery = '&f=$offset';
     }
-    var localeQuery ='';
-    if(language != null) {
+    var localeQuery = '';
+    if (language != null) {
       var locale = language.locale;
       localeQuery = '&locale=$locale';
     }
