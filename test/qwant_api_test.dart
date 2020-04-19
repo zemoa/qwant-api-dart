@@ -1,12 +1,16 @@
 import 'package:qwant_api/qwant_api.dart';
+import 'package:qwant_api/src/models/items/qwImageItem.dart';
+import 'package:qwant_api/src/models/items/qwNewsItems.dart';
+import 'package:qwant_api/src/models/items/qwSocialItems.dart';
+import 'package:qwant_api/src/models/items/qwVideosItems.dart';
+import 'package:qwant_api/src/models/items/qwWebItems.dart';
 import 'package:qwant_api/src/models/qwData.dart';
-import 'package:qwant_api/src/models/qwImageItem.dart';
-import 'package:qwant_api/src/models/qwNewsItems.dart';
 import 'package:qwant_api/src/models/qwSearchResult.dart';
-import 'package:qwant_api/src/models/qwResult.dart';
-import 'package:qwant_api/src/models/qwSocialItems.dart';
-import 'package:qwant_api/src/models/qwVideosItems.dart';
-import 'package:qwant_api/src/models/qwWebItems.dart';
+import 'package:qwant_api/src/models/results/qwImageResult.dart';
+import 'package:qwant_api/src/models/results/qwNewsResult.dart';
+import 'package:qwant_api/src/models/results/qwSocialResult.dart';
+import 'package:qwant_api/src/models/results/qwVideoResult.dart';
+import 'package:qwant_api/src/models/results/qwWebResult.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -20,10 +24,10 @@ void main() {
     test('Test search web', () async {
       var result = await qwantApi.searchWeb('test', count: 1);
       
-      expect(result, isA<QWSearchResult<QWWebItems>>());
+      expect(result, isA<QWSearchResult<QWWebResult>>());
       expect(result.status, equals('success'));
-      expect(result.data, isA<QWData<QWWebItems>>());
-      expect(result.data.result, isA<QWResult<QWWebItems>>());
+      expect(result.data, isA<QWData<QWWebResult>>());
+      expect(result.data.result, isA<QWWebResult>());
       expect(result.data.result.items, isList);
       expect(result.data.result.items.length, equals(1));
       expect(result.data.result.items.first, isA<QWWebItems>());
@@ -33,10 +37,10 @@ void main() {
     test('Test search images', () async {
       var result = await qwantApi.searchImages('test', count: 1);
       
-      expect(result, isA<QWSearchResult<QWImageItems>>());
+      expect(result, isA<QWSearchResult<QWImageResult>>());
       expect(result.status, equals('success'));
-      expect(result.data, isA<QWData<QWImageItems>>());
-      expect(result.data.result, isA<QWResult<QWImageItems>>());
+      expect(result.data, isA<QWData<QWImageResult>>());
+      expect(result.data.result, isA<QWImageResult>());
       expect(result.data.result.items, isList);
       expect(result.data.result.items.length, equals(1));
       expect(result.data.result.items.first, isA<QWImageItems>());
@@ -46,10 +50,10 @@ void main() {
     test('Test search news', () async {
       var result = await qwantApi.searchNews('test', count: 1);
       
-      expect(result, isA<QWSearchResult<QWNewsItems>>());
+      expect(result, isA<QWSearchResult<QWNewsResult>>());
       expect(result.status, equals('success'));
-      expect(result.data, isA<QWData<QWNewsItems>>());
-      expect(result.data.result, isA<QWResult<QWNewsItems>>());
+      expect(result.data, isA<QWData<QWNewsResult>>());
+      expect(result.data.result, isA<QWNewsResult>());
       expect(result.data.result.items, isList);
       expect(result.data.result.items.length, equals(1));
       expect(result.data.result.items.first, isA<QWNewsItems>());
@@ -59,23 +63,23 @@ void main() {
     test('Test search social', () async {
       var result = await qwantApi.searchSocial('test', count: 1);
       
-      expect(result, isA<QWSearchResult<QWSocialItems>>());
+      expect(result, isA<QWSearchResult<QWSocialResult>>());
       expect(result.status, equals('success'));
-      expect(result.data, isA<QWData<QWSocialItems>>());
-      expect(result.data.result, isA<QWResult<QWSocialItems>>());
+      expect(result.data, isA<QWData<QWSocialResult>>());
+      expect(result.data.result, isA<QWSocialResult>());
       expect(result.data.result.items, isList);
       expect(result.data.result.items.length, equals(1));
       expect(result.data.result.items.first, isA<QWSocialItems>());
-      expect(result.data.result.items.first.favoriteCount, isNotEmpty);
+      expect(result.data.result.items.first.desc, isNotEmpty);
     });
 
     test('Test search video', () async {
       var result = await qwantApi.searchVideos('test', count: 1);
       
-      expect(result, isA<QWSearchResult<QWVideosItems>>());
+      expect(result, isA<QWSearchResult<QWVideoResult>>());
       expect(result.status, equals('success'));
-      expect(result.data, isA<QWData<QWVideosItems>>());
-      expect(result.data.result, isA<QWResult<QWVideosItems>>());
+      expect(result.data, isA<QWData<QWVideoResult>>());
+      expect(result.data.result, isA<QWVideoResult>());
       expect(result.data.result.items, isList);
       expect(result.data.result.items.length, equals(1));
       expect(result.data.result.items.first, isA<QWVideosItems>());

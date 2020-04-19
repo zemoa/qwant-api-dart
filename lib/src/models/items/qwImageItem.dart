@@ -1,4 +1,6 @@
-import 'package:qwant_api/src/models/qwItems.dart';
+
+
+import 'package:qwant_api/src/models/items/qwItems.dart';
 
 class QWImageItems extends QWItems {
   String title;

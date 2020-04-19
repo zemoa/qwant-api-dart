@@ -1,9 +1,9 @@
 
-import 'package:qwant_api/src/models/qwItems.dart';
+import 'package:qwant_api/src/models/results/qwResult.dart';
 
 import 'qwData.dart';
 
-class QWSearchResult<T extends QWItems> {
+class QWSearchResult<T extends QWResult> {
   String status;
   QWData<T> data;
 

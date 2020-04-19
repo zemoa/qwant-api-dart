@@ -1,20 +1,37 @@
 import 'package:qwant_api/src/models/qwCache.dart';
-import 'package:qwant_api/src/models/qwItems.dart';
 import 'package:qwant_api/src/models/qwQuery.dart';
-import 'package:qwant_api/src/models/qwResult.dart';
+import 'package:qwant_api/src/models/results/qwImageResult.dart';
+import 'package:qwant_api/src/models/results/qwNewsResult.dart';
+import 'package:qwant_api/src/models/results/qwResult.dart';
+import 'package:qwant_api/src/models/results/qwSocialResult.dart';
+import 'package:qwant_api/src/models/results/qwVideoResult.dart';
+import 'package:qwant_api/src/models/results/qwWebResult.dart';
 
-class QWData<T extends QWItems> {
+class QWData<T extends QWResult> {
   QWQuery query;
   QWCache cache;
-  QWResult<T> result;
+  T result;
 
   QWData({this.query, this.cache, this.result});
 
   QWData.fromJson(Map<String, dynamic> json) {
     query = json['query'] != null ? QWQuery.fromJson(json['query']) : null;
     cache = json['cache'] != null ? QWCache.fromJson(json['cache']) : null;
-    result =
-        json['result'] != null ? QWResult<T>.fromJson(json['result']) : null;
+    result = null;
+    var jsonResult = json['result'];
+    if(jsonResult != null) {
+      if(T == QWWebResult) {
+        result = (QWWebResult.fromJson(jsonResult) as T);
+      } else if(T == QWImageResult) {
+        result = (QWImageResult.fromJson(jsonResult) as T);
+      } else if(T == QWSocialResult) {
+        result = (QWSocialResult.fromJson(jsonResult) as T);
+      } else if(T == QWNewsResult) {
+        result = (QWNewsResult.fromJson(jsonResult) as T);
+      } else if(T == QWVideoResult) {
+        result = (QWVideoResult.fromJson(jsonResult) as T);
+      }
+    }
   }
 
   Map<String, dynamic> toJson() {

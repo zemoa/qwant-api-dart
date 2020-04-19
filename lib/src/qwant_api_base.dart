@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:qwant_api/src/lang.dart';
-import 'package:qwant_api/src/models/qwImageItem.dart';
-import 'package:qwant_api/src/models/qwItems.dart';
-import 'package:qwant_api/src/models/qwNewsItems.dart';
 import 'package:qwant_api/src/models/qwSearchResult.dart';
-import 'package:qwant_api/src/models/qwSocialItems.dart';
-import 'package:qwant_api/src/models/qwVideosItems.dart';
-import 'package:qwant_api/src/models/qwWebItems.dart';
+import 'package:qwant_api/src/models/results/qwImageResult.dart';
+import 'package:qwant_api/src/models/results/qwNewsResult.dart';
+import 'package:qwant_api/src/models/results/qwResult.dart';
+import 'package:qwant_api/src/models/results/qwSocialResult.dart';
+import 'package:qwant_api/src/models/results/qwVideoResult.dart';
+import 'package:qwant_api/src/models/results/qwWebResult.dart';
 
 import 'search_type.dart';
 
@@ -16,32 +16,32 @@ class QwantApi {
   final String _baseUrl = 'https://api.qwant.com/api/search';
   
 
-  Future<QWSearchResult<QWWebItems>> searchWeb(String keyword,
+  Future<QWSearchResult<QWWebResult>> searchWeb(String keyword,
   {int count, int offset, Language language}) async {
-    return _search<QWWebItems>(keyword, SearchType.WEB, count, offset, language);
+    return _search<QWWebResult>(keyword, SearchType.WEB, count, offset, language);
   }
 
-  Future<QWSearchResult<QWImageItems>> searchImages(String keyword,
+  Future<QWSearchResult<QWImageResult>> searchImages(String keyword,
   {int count, int offset, Language language}) async {
-    return _search<QWImageItems>(keyword, SearchType.PICTURES, count, offset, language);
+    return _search<QWImageResult>(keyword, SearchType.PICTURES, count, offset, language);
   }
 
-  Future<QWSearchResult<QWNewsItems>> searchNews(String keyword,
+  Future<QWSearchResult<QWNewsResult>> searchNews(String keyword,
   {int count, int offset, Language language}) async {
-    return _search<QWNewsItems>(keyword, SearchType.NEWS, count, offset, language);
+    return _search<QWNewsResult>(keyword, SearchType.NEWS, count, offset, language);
   }
 
-  Future<QWSearchResult<QWSocialItems>> searchSocial(String keyword,
+  Future<QWSearchResult<QWSocialResult>> searchSocial(String keyword,
   {int count, int offset, Language language}) async {
-    return _search<QWSocialItems>(keyword, SearchType.SOCIAL, count, offset, language);
+    return _search<QWSocialResult>(keyword, SearchType.SOCIAL, count, offset, language);
   }
 
-  Future<QWSearchResult<QWVideosItems>> searchVideos(String keyword,
+  Future<QWSearchResult<QWVideoResult>> searchVideos(String keyword,
   {int count, int offset, Language language}) async {
-    return _search<QWVideosItems>(keyword, SearchType.VIDEOS, count, offset, language);
+    return _search<QWVideoResult>(keyword, SearchType.VIDEOS, count, offset, language);
   }
 
-  Future<QWSearchResult<T>> _search<T extends QWItems>(String keyword, SearchType searchType,
+  Future<QWSearchResult<T>> _search<T extends QWResult>(String keyword, SearchType searchType,
   int count, int offset, Language language) async {
     var request = await HttpClient().getUrl(Uri.parse(_buildRequest(keyword, searchType, count, offset, language)))
     ..headers.contentType = ContentType.json;
