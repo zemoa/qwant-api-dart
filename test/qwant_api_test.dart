@@ -21,6 +21,19 @@ void main() {
       expect(result.data.result.items.first, isA<QWWebItems>());
       expect(result.data.result.items.first.favicon, isNotEmpty);
     });
+
+    test('Test search web in swedish', () async {
+      var result = await qwantApi.searchWeb('test', count: 1, language: Language.SWEDISH);
+      
+      expect(result, isA<QWSearchResult<QWWebResult>>());
+      expect(result.status, equals('success'));
+      expect(result.data, isA<QWData<QWWebResult>>());
+      expect(result.data.result, isA<QWWebResult>());
+      expect(result.data.result.items, isList);
+      expect(result.data.result.items.length, equals(1));
+      expect(result.data.result.items.first, isA<QWWebItems>());
+      expect(result.data.result.items.first.favicon, isNotEmpty);
+    });
     
     test('Test search images', () async {
       var result = await qwantApi.searchImages('test', count: 1);

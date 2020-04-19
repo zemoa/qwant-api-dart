@@ -6,7 +6,7 @@ void main() async {
   var qwantApit = QwantApi();
   var result1 = await qwantApit.searchWeb('test');
   print(result1.status);
-  var result2 = await qwantApit.searchWeb('test', count: 2, language: Language.ENGISH);
+  var result2 = await qwantApit.searchWeb('test', count: 2, language: Language.ENGLISH);
   print(result2.status);
   var result3 = await qwantApit.searchNews('test');
   print(result3.status);

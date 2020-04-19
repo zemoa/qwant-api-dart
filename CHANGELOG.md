@@ -1,6 +1,8 @@
-# Changelog
+## 0.1.1
 
-## 0.1.0 (19 april 2020)
+- Improve documentation
+
+## 0.1.0
 
 - Initial version, created by Zemoa
 - Include following search type

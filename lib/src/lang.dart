@@ -1,5 +1,8 @@
+/// Enumeration for language
+/// ex:
+/// var result = await qwantApi.searchWeb('test', count: 1, language: Language.SWEDISH);
 enum Language {
-  ENGISH,
+  ENGLISH,
   GERMAN,
   FRENCH,
   WELSH,
@@ -34,7 +37,7 @@ enum Language {
 
 extension LanguageStr on Language {
   String get locale => const {
-        Language.ENGISH: 'en_gb',
+        Language.ENGLISH: 'en_gb',
         Language.GERMAN: 'de_de',
         Language.FRENCH: 'fr_fr',
         Language.WELSH: 'cy_gb',

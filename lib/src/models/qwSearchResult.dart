@@ -2,6 +2,7 @@ import 'package:qwant_api/src/models/results/qwResult.dart';
 
 import 'qwData.dart';
 
+/// Wrapper for a Qwant's search
 class QWSearchResult<T extends QWResult> {
   String status;
   QWData<T> data;

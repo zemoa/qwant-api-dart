@@ -12,32 +12,59 @@ import 'package:qwant_api/src/models/results/qwWebResult.dart';
 
 import 'search_type.dart';
 
+/// Main api class. It will make the real search
 class QwantApi {
+  /// base url for Qwant's search
   final String _baseUrl = 'https://api.qwant.com/api/search';
 
+  /// Perform a search on Qwant's for web with the given [query].
+  /// The optional parameter [count] is used to limit the result.
+  /// The optional parameter [offset] is used for defining the starting index (for pagination)
+  /// The optional parameter [language] will Qwant in which language the search must be done.
+  /// Look at [Language] in order to see which language are allowed.
   Future<QWSearchResult<QWWebResult>> searchWeb(String query,
       {int count, int offset, Language language}) async {
     return _search<QWWebResult>(query, SearchType.WEB, count, offset, language);
   }
 
+  /// Perform a search on Qwant's for images with the given [query].
+  /// The optional parameter [count] is used to limit the result.
+  /// The optional parameter [offset] is used for defining the starting index (for pagination)
+  /// The optional parameter [language] will Qwant in which language the search must be done.
+  /// Look at [Language] in order to see which language are allowed.
   Future<QWSearchResult<QWImageResult>> searchImages(String query,
       {int count, int offset, Language language}) async {
     return _search<QWImageResult>(
         query, SearchType.PICTURES, count, offset, language);
   }
 
+  /// Perform a search on Qwant's for news with the given [query].
+  /// The optional parameter [count] is used to limit the result.
+  /// The optional parameter [offset] is used for defining the starting index (for pagination)
+  /// The optional parameter [language] will Qwant in which language the search must be done.
+  /// Look at [Language] in order to see which language are allowed.
   Future<QWSearchResult<QWNewsResult>> searchNews(String query,
       {int count, int offset, Language language}) async {
     return _search<QWNewsResult>(
         query, SearchType.NEWS, count, offset, language);
   }
 
+  /// Perform a search on Qwant's for Social stuff with the given [query].
+  /// The optional parameter [count] is used to limit the result.
+  /// The optional parameter [offset] is used for defining the starting index (for pagination)
+  /// The optional parameter [language] will Qwant in which language the search must be done.
+  /// Look at [Language] in order to see which language are allowed.
   Future<QWSearchResult<QWSocialResult>> searchSocial(String query,
       {int count, int offset, Language language}) async {
     return _search<QWSocialResult>(
         query, SearchType.SOCIAL, count, offset, language);
   }
 
+  /// Perform a search on Qwant's for videos with the given [query].
+  /// The optional parameter [count] is used to limit the result.
+  /// The optional parameter [offset] is used for defining the starting index (for pagination)
+  /// The optional parameter [language] will Qwant in which language the search must be done.
+  /// Look at [Language] in order to see which language are allowed.
   Future<QWSearchResult<QWVideoResult>> searchVideos(String query,
       {int count, int offset, Language language}) async {
     return _search<QWVideoResult>(

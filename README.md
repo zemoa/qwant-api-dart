@@ -27,7 +27,7 @@ Check on <https://pub.dev/>
 ```yaml
 #pubspec.yaml
 dependencies:
-    qwant_api: ^0.1.0
+    qwant_api: ^0.1.1
 ```
 
 Import :
