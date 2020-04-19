@@ -1,7 +1,6 @@
 
 
 import 'package:qwant_api/qwant_api.dart';
-import 'package:qwant_api/src/lang.dart';
 
 void main() async {
   var qwantApit = QwantApi();

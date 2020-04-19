@@ -77,10 +77,15 @@ enum Language {
 
 ```dart
 
-// Instantiate the api
-var qwantApit = QwantApi();
-// Then perform an async search
-var result1 = await qwantApit.searchWeb('test');
+import 'package:qwant_api/qwant_api.dart';
+
+void main() async {
+    // Instantiate the api
+    var qwantApit = QwantApi();
+    // Then perform an async search
+    var result1 = await qwantApit.searchWeb('test');
+    var result2 = await qwantApit.searchWeb('test', count: 2, language: Language.ENGISH);
+}
 
 ```
 
@@ -102,3 +107,9 @@ It will return a value of type `QWSearchResult<T extends QWResult>` where `QWRes
 | count | No | `int` | Number of items to search (currently it seems to be limited to 50 by Qwant's API) |
 | offset | No | `int` | Index of the first items to fetch (for pagination) |
 | language | No | `Language` | Language for the search |
+
+## Important notes
+
+According to [NLDev/qwant-api](https://github.com/NLDev/qwant-api), there are some limitations. After some queries a captcha should be filled.
+
+I didn't reach this limit so no helper has been provided to catch this behavior yet.
