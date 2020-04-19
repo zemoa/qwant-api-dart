@@ -1,4 +1,6 @@
-## 0.1.0
+# Changelog
+
+## 0.1.0 (19 april 2020)
 
 - Initial version, created by Zemoa
 - Include following search type
