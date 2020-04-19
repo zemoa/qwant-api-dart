@@ -1,6 +1,6 @@
 name: qwant_api
-version: 0.1.0
-description: Unofficial api for helping using qwant's search
+version: 0.1.1
+description: An unofficial api for helping using Qwant's search. This package is for helping developers to make some queries with the Qwant's engine. 
 homepage: https://github.com/zemoa/qwant-api-dart/
 
 environment:

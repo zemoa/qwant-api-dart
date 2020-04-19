@@ -24,6 +24,18 @@ Created from templates made available by Stagehand under a BSD-style
 
 Check on <https://pub.dev/>
 
+```yaml
+#pubspec.yaml
+dependencies:
+    qwant_api: ^0.1.0
+```
+
+Import :
+
+```dart
+import 'package:qwant_api/qwant_api.dart';
+```
+
 ## Features
 
 ### Supported search
