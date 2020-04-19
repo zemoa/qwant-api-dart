@@ -17,7 +17,7 @@ class QWSocialItems extends QWItems {
   bool verified;
   int retweetCount;
   int favoriteCount;
-  List<QWMedia> medias;
+  List<QWMediaSocial> medias;
   String userUrl;
 
   QWSocialItems(
@@ -54,9 +54,9 @@ class QWSocialItems extends QWItems {
     retweetCount = json['retweetCount'];
     favoriteCount = json['favoriteCount'];
     if (json['medias'] != null) {
-      medias = <QWMedia>[];
+      medias = <QWMediaSocial>[];
       json['medias'].forEach((v) {
-        medias.add(QWMedia.fromJson(v));
+        medias.add(QWMediaSocial.fromJson(v));
       });
     }
     userUrl = json['userUrl'];
@@ -87,14 +87,14 @@ class QWSocialItems extends QWItems {
   }
 }
 
-class QWMedia {
+class QWMediaSocial {
   String type;
   String mediaUrlHttps;
   QWVideoInfo videoInfo;
 
-  QWMedia({this.type, this.mediaUrlHttps, this.videoInfo});
+  QWMediaSocial({this.type, this.mediaUrlHttps, this.videoInfo});
 
-  QWMedia.fromJson(Map<String, dynamic> json) {
+  QWMediaSocial.fromJson(Map<String, dynamic> json) {
     type = json['type'];
     mediaUrlHttps = json['media_url_https'];
     videoInfo = json['video_info'] != null

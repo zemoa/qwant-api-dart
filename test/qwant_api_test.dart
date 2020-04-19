@@ -1,16 +1,4 @@
 import 'package:qwant_api/qwant_api.dart';
-import 'package:qwant_api/src/models/items/qwImageItem.dart';
-import 'package:qwant_api/src/models/items/qwNewsItems.dart';
-import 'package:qwant_api/src/models/items/qwSocialItems.dart';
-import 'package:qwant_api/src/models/items/qwVideosItems.dart';
-import 'package:qwant_api/src/models/items/qwWebItems.dart';
-import 'package:qwant_api/src/models/qwData.dart';
-import 'package:qwant_api/src/models/qwSearchResult.dart';
-import 'package:qwant_api/src/models/results/qwImageResult.dart';
-import 'package:qwant_api/src/models/results/qwNewsResult.dart';
-import 'package:qwant_api/src/models/results/qwSocialResult.dart';
-import 'package:qwant_api/src/models/results/qwVideoResult.dart';
-import 'package:qwant_api/src/models/results/qwWebResult.dart';
 import 'package:test/test.dart';
 
 void main() {

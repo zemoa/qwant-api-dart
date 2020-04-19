@@ -9,7 +9,7 @@ class QWNewsItems extends QWItems {
   String domain;
   String category;
   String sId;
-  List<QWMedia> media;
+  List<QWMediaNews> media;
   String desc;
   String descShort;
 
@@ -32,9 +32,9 @@ class QWNewsItems extends QWItems {
     category = json['category'];
     sId = json['_id'];
     if (json['media'] != null) {
-      media = <QWMedia>[];
+      media = <QWMediaNews>[];
       json['media'].forEach((v) {
-        media.add(QWMedia.fromJson(v));
+        media.add(QWMediaNews.fromJson(v));
       });
     }
     desc = json['desc'];
@@ -84,13 +84,13 @@ class QWPict {
   }
 }
 
-class QWMedia {
+class QWMediaNews {
   QWPict pict;
   QWPict pictBig;
 
-  QWMedia({this.pict, this.pictBig});
+  QWMediaNews({this.pict, this.pictBig});
 
-  QWMedia.fromJson(Map<String, dynamic> json) {
+  QWMediaNews.fromJson(Map<String, dynamic> json) {
     pict = json['pict'] != null ? QWPict.fromJson(json['pict']) : null;
     pictBig =
         json['pict_big'] != null ? QWPict.fromJson(json['pict_big']) : null;
