@@ -16,34 +16,34 @@ class QwantApi {
   final String _baseUrl = 'https://api.qwant.com/api/search';
   
 
-  Future<QWSearchResult<QWWebResult>> searchWeb(String keyword,
+  Future<QWSearchResult<QWWebResult>> searchWeb(String query,
   {int count, int offset, Language language}) async {
-    return _search<QWWebResult>(keyword, SearchType.WEB, count, offset, language);
+    return _search<QWWebResult>(query, SearchType.WEB, count, offset, language);
   }
 
-  Future<QWSearchResult<QWImageResult>> searchImages(String keyword,
+  Future<QWSearchResult<QWImageResult>> searchImages(String query,
   {int count, int offset, Language language}) async {
-    return _search<QWImageResult>(keyword, SearchType.PICTURES, count, offset, language);
+    return _search<QWImageResult>(query, SearchType.PICTURES, count, offset, language);
   }
 
-  Future<QWSearchResult<QWNewsResult>> searchNews(String keyword,
+  Future<QWSearchResult<QWNewsResult>> searchNews(String query,
   {int count, int offset, Language language}) async {
-    return _search<QWNewsResult>(keyword, SearchType.NEWS, count, offset, language);
+    return _search<QWNewsResult>(query, SearchType.NEWS, count, offset, language);
   }
 
-  Future<QWSearchResult<QWSocialResult>> searchSocial(String keyword,
+  Future<QWSearchResult<QWSocialResult>> searchSocial(String query,
   {int count, int offset, Language language}) async {
-    return _search<QWSocialResult>(keyword, SearchType.SOCIAL, count, offset, language);
+    return _search<QWSocialResult>(query, SearchType.SOCIAL, count, offset, language);
   }
 
-  Future<QWSearchResult<QWVideoResult>> searchVideos(String keyword,
+  Future<QWSearchResult<QWVideoResult>> searchVideos(String query,
   {int count, int offset, Language language}) async {
-    return _search<QWVideoResult>(keyword, SearchType.VIDEOS, count, offset, language);
+    return _search<QWVideoResult>(query, SearchType.VIDEOS, count, offset, language);
   }
 
-  Future<QWSearchResult<T>> _search<T extends QWResult>(String keyword, SearchType searchType,
+  Future<QWSearchResult<T>> _search<T extends QWResult>(String query, SearchType searchType,
   int count, int offset, Language language) async {
-    var request = await HttpClient().getUrl(Uri.parse(_buildRequest(keyword, searchType, count, offset, language)))
+    var request = await HttpClient().getUrl(Uri.parse(_buildRequest(query, searchType, count, offset, language)))
     ..headers.contentType = ContentType.json;
     var response = await request.close();
     return utf8.decoder.bind(response).map((json){
@@ -52,7 +52,7 @@ class QwantApi {
     }).first;
   }
 
-  String _buildRequest(String keyword, SearchType searchType, int count, int offset, Language language) {
+  String _buildRequest(String query, SearchType searchType, int count, int offset, Language language) {
     
     String type;
     switch(searchType) {
@@ -86,6 +86,6 @@ class QwantApi {
       localeQuery = '&locale=$locale';
     }
 
-    return '$_baseUrl/$type?q=$keyword&t=$keyword&uiv=4$countQuery$offsetQuery$localeQuery';
+    return '$_baseUrl/$type?q=$query&t=$query&uiv=4$countQuery$offsetQuery$localeQuery';
   }
 }
