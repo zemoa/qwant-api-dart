@@ -49,7 +49,7 @@ import 'package:qwant_api/qwant_api.dart';
 
 ```dart
 enum Language {
-    ENGISH,
+    ENGLISH,
     GERMAN,
     FRENCH,
     WELSH,
